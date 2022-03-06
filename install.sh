@@ -6,6 +6,7 @@ caddy_version=2.4.6
 filebrowser_version=v2.20.1
 rclone_version=v1.57.0
 ariang_version=1.2.3
+fclone_version=v0.4.1
 
 case "$(arch)" in
 
@@ -13,17 +14,20 @@ case "$(arch)" in
       platform=linux-amd64
       caddy_file=caddy_${caddy_version}_linux_amd64.tar.gz
       rclone_file=rclone-${rclone_version}-${platform}.zip
+      fclone_file=fclone-${fclone_version}-${platform}.zip
      ;;
    armv7l)
      platform=linux-armv7
      caddy_file=caddy_${caddy_version}_linux_armv7.tar.gz
      rclone_file=rclone-${rclone_version}-linux-arm-v7.zip
+     fclone_file=fclone-${fclone_version}-linux-arm-v7.zip
      ;;
 
    aarch64)
      platform=linux-arm64
      caddy_file=caddy_${caddy_version}_linux_arm64.tar.gz
      rclone_file=rclone-${rclone_version}-${platform}.zip
+     fclone_file=fclone-${fclone_version}-${platform}.zip
      ;;
 
    *)
@@ -50,10 +54,10 @@ adduser -D -u 1000 junv \
   && mkdir -p /usr/local/www \
   && mkdir -p /usr/local/www/aria2 \
   && rm -rf init /app/*.txt \
-  && curl -O https://downloads.rclone.org/${rclone_version}/${rclone_file} \
-  && unzip ${rclone_file} \
-  && cd rclone-* \
-  && cp rclone /usr/local/bin/ \
+  && curl -O https://github.com/mawaya/rclone/releases/download/fclone-${fclone_version}/${fclone_file} \
+  && unzip ${fclone_file} \
+  && cd fclone-* \
+  && cp fclone /usr/local/bin/rclone \
   && chown junv:junv /usr/local/bin/rclone \
   && chmod 755 /usr/local/bin/rclone \
   && rm /app/${rclone_file} \
