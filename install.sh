@@ -54,7 +54,7 @@ adduser -D -u 1000 junv \
   && mkdir -p /usr/local/www \
   && mkdir -p /usr/local/www/aria2 \
   && rm -rf init /app/*.txt \
-  && curl -O https://github.com/mawaya/rclone/releases/download/fclone-${fclone_version}/${fclone_file} \
+  && curl -O -L https://github.com/mawaya/rclone/releases/download/fclone-${fclone_version}/${fclone_file} \
   && unzip ${fclone_file} \
   && cd fclone-* \
   && cp fclone /usr/local/bin/rclone \
