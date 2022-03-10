@@ -45,7 +45,7 @@ ariang_file=AriaNg-${ariang_version}.zip
 
 adduser -D -u 1000 junv \
   && apk update \
-  && apk add runit shadow wget bash curl openrc gnupg tar mailcap fuse vim --no-cache \
+  && apk add runit shadow wget bash curl openrc gnupg aria2 tar mailcap fuse vim --no-cache \
   && wget -N https://github.com/caddyserver/caddy/releases/download/v${caddy_version}/${caddy_file} \
   && tar -zxf ${caddy_file} \
   && mv caddy /usr/local/bin/ \
@@ -68,13 +68,10 @@ adduser -D -u 1000 junv \
   && rm -rf /app/fclone-* \
   && cd /app \
   && wget -N --no-check-certificate https://github.com/P3TERX/Aria2-Pro-Core/releases/download/1.36.0_2021.08.22/${aria2_file} \
-  && echo "0" \
   && tar -vxf ${aria2_file} \
   && echo "1" \
-  && mv -v aria2c /usr/local/bin/ \
-  && echo "2" \
+  && mv -v -f aria2c /usr/local/bin/ \
   && rm -rf -v ${aria2_file} \
-  && echo "3" \
   && mkdir /usr/local/www/aria2/Download \
   && cd /usr/local/www/aria2 \
   && chmod +rw /app/conf/aria2.session \
