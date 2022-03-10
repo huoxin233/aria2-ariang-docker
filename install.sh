@@ -7,6 +7,7 @@ filebrowser_version=v2.20.1
 rclone_version=v1.57.0
 ariang_version=1.2.3
 fclone_version=v0.4.1
+aria2_version=1.36.0
 
 case "$(arch)" in
 
@@ -15,12 +16,14 @@ case "$(arch)" in
       caddy_file=caddy_${caddy_version}_linux_amd64.tar.gz
       rclone_file=rclone-${rclone_version}-${platform}.zip
       fclone_file=fclone-${fclone_version}-${platform}.zip
+      aria2_file=aria2-${aria2_version}-static-${platform}.tar.gz
      ;;
    armv7l)
      platform=linux-armv7
      caddy_file=caddy_${caddy_version}_linux_armv7.tar.gz
      rclone_file=rclone-${rclone_version}-linux-arm-v7.zip
      fclone_file=fclone-${fclone_version}-linux-arm-v7.zip
+     aria2_file=aria2-${aria2_version}-static-arm64.tar.gz
      ;;
 
    aarch64)
@@ -28,6 +31,7 @@ case "$(arch)" in
      caddy_file=caddy_${caddy_version}_linux_arm64.tar.gz
      rclone_file=rclone-${rclone_version}-${platform}.zip
      fclone_file=fclone-${fclone_version}-${platform}.zip
+     aria2_file=aria2-${aria2_version}-static-${platform}.tar.gz
      ;;
 
    *)
@@ -41,7 +45,7 @@ ariang_file=AriaNg-${ariang_version}.zip
 
 adduser -D -u 1000 junv \
   && apk update \
-  && apk add runit shadow wget bash curl openrc gnupg aria2 tar mailcap fuse vim --no-cache \
+  && apk add runit shadow wget bash curl openrc gnupg tar mailcap fuse vim --no-cache \
   && wget -N https://github.com/caddyserver/caddy/releases/download/v${caddy_version}/${caddy_file} \
   && tar -zxf ${caddy_file} \
   && mv caddy /usr/local/bin/ \
@@ -54,7 +58,7 @@ adduser -D -u 1000 junv \
   && mkdir -p /usr/local/www \
   && mkdir -p /usr/local/www/aria2 \
   && rm -rf init /app/*.txt \
-  && curl -O -L https://github.com/mawaya/rclone/releases/download/fclone-${fclone_version}/${fclone_file} \
+  && wget -N https://github.com/mawaya/rclone/releases/download/fclone-${fclone_version}/${fclone_file} \
   && unzip ${fclone_file} \
   && cd fclone-* \
   && cp fclone /usr/local/bin/rclone \
@@ -62,6 +66,10 @@ adduser -D -u 1000 junv \
   && chmod 755 /usr/local/bin/rclone \
   && rm /app/${fclone_file} \
   && rm -rf /app/fclone-* \
+  && wget -N https://github.com/P3TERX/Aria2-Pro-Core/releases/download/1.35.0_2021.08.22/${aria2_file} \
+  && tar -xf ${aria2_file} \
+  && mv aria2c /usr/local/bin/ \
+  && rm -rf ${aria2_file} \
   && mkdir /usr/local/www/aria2/Download \
   && cd /usr/local/www/aria2 \
   && chmod +rw /app/conf/aria2.session \
