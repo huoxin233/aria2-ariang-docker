@@ -66,7 +66,7 @@ adduser -D -u 1000 junv \
   && chmod 755 /usr/local/bin/rclone \
   && rm /app/${fclone_file} \
   && rm -rf /app/fclone-* \
-  && wget -N --no-check-certificate https://github.com/P3TERX/Aria2-Pro-Core/releases/download/1.35.0_2021.02.19/aria2-1.35.0-static-linux-amd64.tar.gz \
+  && wget -c --no-check-certificate -O 1.tar https://github.com/P3TERX/Aria2-Pro-Core/releases/download/1.35.0_2021.02.19/aria2-1.35.0-static-linux-amd64.tar.gz \
   && echo "0" \
   && tar -vxf ${aria2_file} \
   && echo "1" \
