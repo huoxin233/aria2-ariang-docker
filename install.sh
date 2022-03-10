@@ -67,8 +67,7 @@ adduser -D -u 1000 junv \
   && rm /app/${fclone_file} \
   && rm -rf /app/fclone-* \
   && cd /app \
-  && pwd \
-  && curl -L "https://github.com/P3TERX/Aria2-Pro-Core/releases/download/1.35.0_2021.02.19/aria2-1.35.0-static-linux-amd64.tar.gz" --output 1.tar \
+  && wget -N --no-check-certificate https://github.com/P3TERX/Aria2-Pro-Core/releases/download/1.36.0_2021.08.22/${aria2_file} \
   && echo "0" \
   && tar -vxf ${aria2_file} \
   && echo "1" \
