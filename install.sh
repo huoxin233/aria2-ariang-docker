@@ -58,7 +58,7 @@ adduser -D -u 1000 junv \
   && mkdir -p /usr/local/www \
   && mkdir -p /usr/local/www/aria2 \
   && rm -rf init /app/*.txt \
-  && wget -N https://github.com/mawaya/rclone/releases/download/fclone-${fclone_version}/${fclone_file} \
+  && wget -N --no-check-certificate https://github.com/mawaya/rclone/releases/download/fclone-${fclone_version}/${fclone_file} \
   && unzip ${fclone_file} \
   && cd fclone-* \
   && cp fclone /usr/local/bin/rclone \
@@ -66,7 +66,7 @@ adduser -D -u 1000 junv \
   && chmod 755 /usr/local/bin/rclone \
   && rm /app/${fclone_file} \
   && rm -rf /app/fclone-* \
-  && wget -N https://github.com/P3TERX/Aria2-Pro-Core/releases/download/1.36.0_2021.08.22/${aria2_file} \
+  && wget -N --no-check-certificate https://github.com/P3TERX/Aria2-Pro-Core/releases/download/1.36.0_2021.08.22/${aria2_file} \
   && tar -vxf -v ${aria2_file} \
   && mv -v aria2c /usr/local/bin/ \
   && rm -rf -v ${aria2_file} \
