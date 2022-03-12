@@ -36,9 +36,8 @@ ENV XDG_CONFIG_HOME=/app/.caddy/config
 ENV RCLONE_CONFIG_BASE64=""
 ENV ENABLE_APP_CHECKER=true
 
-ADD install.sh aria2c.sh caddy.sh Procfile init.sh start.sh rclone.sh new-version-checker.sh APP_VERSION filebrowser.db /app/
+ADD install.sh aria2c.sh caddy.sh Procfile init.sh start.sh rclone.sh new-version-checker.sh APP_VERSION /app/
 ADD conf /app/conf
-ADD sa /data/sa
 ADD Caddyfile SecureCaddyfile HerokuCaddyfile /usr/local/caddy/
 
 COPY --from=build-forego /app/forego/forego /app
