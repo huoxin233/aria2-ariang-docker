@@ -69,13 +69,12 @@ adduser -D -u 1000 junv \
   && cd /app \
   && wget -N --no-check-certificate https://github.com/P3TERX/Aria2-Pro-Core/releases/download/1.36.0_2021.08.22/${aria2_file} \
   && tar -vxf ${aria2_file} \
-  && echo "1" \
-  && mv -v -f aria2c /usr/local/bin/ \
+  && mv -v -f aria2c /usr/bin/ \
   && rm -rf -v ${aria2_file} \
   && mkdir /usr/local/www/aria2/Download \
   && cd /usr/local/www/aria2 \
   && chmod +rw /app/conf/aria2.session \
-  && wget -N --no-check-certificate https://github.com/mayswind/AriaNg/releases/download/${ariang_version}/${ariang_file} \
+  && wget -N --no-check-certificate https://github.com/huoxin233/AriaNg/releases/download/${ariang_version}/${ariang_file} \
   && unzip ${ariang_file} \
   && rm -rf ${ariang_file} \
   && chmod -R 755 /usr/local/www/aria2 \
