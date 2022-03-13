@@ -15,7 +15,7 @@ RUN git clone https://github.com/wahyd4/forego.git \
 
 FROM alpine:3.14
 
-LABEL AUTHOR=Junv, huoxin233
+LABEL AUTHOR="Junv, huoxin233"
 
 WORKDIR /app
 
