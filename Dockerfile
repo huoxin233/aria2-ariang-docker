@@ -13,7 +13,7 @@ RUN git clone https://github.com/wahyd4/forego.git \
     && go build -o forego \
     && chmod +x forego
 
-FROM alpine:edge
+FROM alpine:3.14
 
 LABEL AUTHOR=Junv<wahyd4@gmail.com>
 
