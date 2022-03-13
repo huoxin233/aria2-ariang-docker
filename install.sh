@@ -64,6 +64,9 @@ adduser -D -u 1000 junv \
   && cp fclone /usr/local/bin/rclone \
   && chown junv:junv /usr/local/bin/rclone \
   && chmod 755 /usr/local/bin/rclone \
+  && cp fclone /usr/local/bin/fclone \
+  && chown junv:junv /usr/local/bin/fclone \
+  && chmod 755 /usr/local/bin/fclone \
   && rm /app/${fclone_file} \
   && rm -rf /app/fclone-* \
   && cd /app \
