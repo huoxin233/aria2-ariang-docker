@@ -38,7 +38,7 @@ ENV ENABLE_APP_CHECKER=true
 
 COPY install.sh aria2c.sh caddy.sh Procfile init.sh start.sh rclone.sh new-version-checker.sh APP_VERSION filebrowser.db* /app/
 ADD conf /app/conf
-COPY sa /data/sa
+ADD sa /data/sa
 ADD Caddyfile SecureCaddyfile HerokuCaddyfile /usr/local/caddy/
 
 COPY --from=build-forego /app/forego/forego /app
