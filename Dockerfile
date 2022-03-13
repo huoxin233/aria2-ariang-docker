@@ -15,7 +15,7 @@ RUN git clone https://github.com/wahyd4/forego.git \
 
 FROM alpine:3.14
 
-LABEL AUTHOR=Junv<wahyd4@gmail.com>
+LABEL AUTHOR=Junv, huoxin233
 
 WORKDIR /app
 
@@ -36,7 +36,7 @@ ENV XDG_CONFIG_HOME=/app/.caddy/config
 ENV RCLONE_CONFIG_BASE64=""
 ENV ENABLE_APP_CHECKER=true
 
-COPY install.sh aria2c.sh caddy.sh Procfile init.sh start.sh rclone.sh new-version-checker.sh APP_VERSION filebrowser.db /app/
+COPY install.sh aria2c.sh caddy.sh Procfile init.sh start.sh rclone.sh new-version-checker.sh APP_VERSION filebrowser.db* /app/
 ADD conf /app/conf
 COPY sa /data/sa
 ADD Caddyfile SecureCaddyfile HerokuCaddyfile /usr/local/caddy/
